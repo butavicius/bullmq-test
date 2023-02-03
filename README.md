@@ -41,7 +41,7 @@ For example:
 2023-02-03T12:00:25.000Z: Job done
 ```
 
-While the delay of 3 minutes dos not seem like a big deal, it can turn into hours if the interval is 24 hours instead of 5 minutes.
+While the delay of 3 minutes does not seem like a big deal, it can turn into hours if the interval is 24 hours instead of 5 minutes.
 
 ## Additional information:
 
