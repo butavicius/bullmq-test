@@ -18,11 +18,11 @@ A repeatable job should be executed ("Job done" logged to console) every 5 minut
 For example:
 ```
 2023-02-03T12:00:00.000Z: Job done
-2023-02-03T12:00:05.000Z: Job done
-2023-02-03T12:00:10.000Z: Job done
-2023-02-03T12:00:13.000Z: (Temporary loss of connection to Redis lasting 10 seconds)
-2023-02-03T12:00:15.000Z: Job done
-2023-02-03T12:00:20.000Z: Job done
+2023-02-03T12:05:00.000Z: Job done
+2023-02-03T12:10:00.000Z: Job done
+2023-02-03T12:13:00.000Z: (Temporary loss of connection to Redis lasting 10 seconds)
+2023-02-03T12:15:00.000Z: Job done
+2023-02-03T12:20:00.000Z: Job done
 ```
 
 ## Actual behavior:
@@ -33,12 +33,12 @@ If the connection to Redis is lost, the repeatable job is eventually executed, b
 For example:
 ```
 2023-02-03T12:00:00.000Z: Job done
-2023-02-03T12:00:05.000Z: Job done
-2023-02-03T12:00:10.000Z: Job done
-2023-02-03T12:00:13.000Z: (Temporary loss of connection to Redis lasting 10 seconds)
-2023-02-03T12:00:18.000Z: Job done <--- This job is 3 minutes late. 
-2023-02-03T12:00:20.000Z: Job done
-2023-02-03T12:00:25.000Z: Job done
+2023-02-03T12:05:00.000Z: Job done
+2023-02-03T12:10:00.000Z: Job done
+2023-02-03T12:13:00.000Z: (Temporary loss of connection to Redis lasting 10 seconds)
+2023-02-03T12:18:00.000Z: Job done <--- This job is 3 minutes late. 
+2023-02-03T12:20:00.000Z: Job done
+2023-02-03T12:25:00.000Z: Job done
 ```
 
 While the delay of 3 minutes does not seem like a big deal, it can turn into hours if the interval is 24 hours instead of 5 minutes.
