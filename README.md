@@ -36,10 +36,12 @@ For example:
 2023-02-03T12:00:05.000Z: Job done
 2023-02-03T12:00:10.000Z: Job done
 2023-02-03T12:00:13.000Z: (Temporary loss of connection to Redis lasting 10 seconds)
-2023-02-03T12:00:18.000Z: Job done <--- This job is 3 minutes late. With longer repeat intervals it would be hours of delay.
+2023-02-03T12:00:18.000Z: Job done <--- This job is 3 minutes late. 
 2023-02-03T12:00:20.000Z: Job done
 2023-02-03T12:00:25.000Z: Job done
 ```
+
+While the delay of 3 minutes dos not seem like a big deal, it can turn into hours if the interval is 24 hours instead of 5 minutes.
 
 ## Additional information:
 
