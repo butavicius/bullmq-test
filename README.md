@@ -1,6 +1,6 @@
 This repository demonstrates the problem I get with BullMQ repeatable jobs when connection to Redis is temporarily lost.
 
-To start application:
+## To start application
 
 * `git clone` this repository
 * `docker compose up`
@@ -11,7 +11,8 @@ To simulate the temporary loss of connection to Redis:
 * wait for 10 seconds
 * `docker compose start bullmq-test-redis`
 
-**Expected behavior:** 
+## Expected behavior
+
 A repeatable job should be executed ("Job done" logged to console) every 5 minutes. If you simulate the temporary loss of connection to Redis, the job should still be executed on the next schedule.
 
 For example:
@@ -24,7 +25,8 @@ For example:
 2023-02-03T12:00:20.000Z: Job done
 ```
 
-**Actual behavior:**
+## Actual behavior:
+
 If the connection to Redis is lost, the repeatable job is eventually executed, but not on the next schedule. Instead, it is executed 5 minutes after the connection to Redis problem happens.
 
 
@@ -39,7 +41,7 @@ For example:
 2023-02-03T12:00:25.000Z: Job done
 ```
 
-**Additional information:**
+## Additional information:
 
 This is the actual console output from the application including the temporary loss of connection to Redis:
 
