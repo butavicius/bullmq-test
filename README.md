@@ -1,11 +1,11 @@
 This repository demonstrates the problem I get with BullMQ repeatable jobs when connection to Redis is temporarily lost.
 
-## To start application
+### To start application
 
 * `git clone` this repository
 * `docker compose up`
 
-To simulate the temporary loss of connection to Redis:
+### To simulate the temporary loss of connection to Redis:
 
 * `docker compose stop bullmq-test-redis`
 * wait for 10 seconds
