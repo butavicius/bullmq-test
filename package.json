@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bullmq": "^3.6.1"
+    "bullmq": "^3.6.2"
   }
 }
